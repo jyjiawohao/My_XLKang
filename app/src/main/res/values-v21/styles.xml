@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--<style name="AppTheme" parent="AppTheme.Base">
+    &lt;!&ndash;透明状态栏&ndash;&gt;
+    <item name="android:windowTranslucentStatus">true</item>
+    &lt;!&ndash;透明导航栏&ndash;&gt;
+    <item name="android:windowTranslucentNavigation">true</item>
+    &lt;!&ndash;使状态栏，导航栏可绘制&ndash;&gt;
+    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+  </style>-->
+  <!--<style name="DefaultTheme" parent="android:Theme.Material">
+  <item name="android:colorPrimaryDark">#f00</item>
+  <item name="android:colorPrimary">#e98282</item>
+  </style>-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+      <!--  &lt;!&ndash;沉浸式 全透明的状态栏&ndash;&gt;
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        &lt;!&ndash;标题栏的颜色&ndash;&gt;
+        <item name="android:textColorPrimary">#fff</item>-->
+    </style>
+</resources>

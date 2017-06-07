@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="btn_normal">#23A302</color>
+    <color name="red">#ff0000</color>
+    <color name="white">#ffffff</color>
+    <!--正文文字颜色-->
+    <color name="colorContent">#ff333333</color>
+
+    <color name="colorWhite">#ffffffff</color>
+    <color name="colorTheme">#ffce3d3a</color>
+    <!--首页分割线-->
+    <color name="colorHomeLine">#D4D4D4</color>
+    <!--电影详情景-->
+    <color name="half_transparent">#88000000</color>
+    <color name="colorTitle">#666</color>
+
+    <!--电影评分-->
+    <color name="colorRateRed">#FB5B81</color>
+</resources>
