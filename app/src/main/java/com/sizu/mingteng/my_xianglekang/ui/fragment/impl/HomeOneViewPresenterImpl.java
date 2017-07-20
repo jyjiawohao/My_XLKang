@@ -1,11 +1,10 @@
 package com.sizu.mingteng.my_xianglekang.ui.fragment.impl;
 
 import com.sizu.mingteng.my_xianglekang.ApiService;
-import com.sizu.mingteng.my_xianglekang.App;
 import com.sizu.mingteng.my_xianglekang.bean.MovieBean;
 import com.sizu.mingteng.my_xianglekang.global.rx.SubscriberOnNextListener;
 import com.sizu.mingteng.my_xianglekang.network.RetrofitManager;
-import com.sizu.mingteng.my_xianglekang.ui.fragment.HomeOneView;
+import com.sizu.mingteng.my_xianglekang.ui.one.HomeOneView;
 import com.sizu.mingteng.my_xianglekang.ui.fragment.persenter.HomeOneViewPresenter;
 import com.sizu.mingteng.my_xianglekang.util.MyLogger;
 
@@ -38,7 +37,7 @@ public class HomeOneViewPresenterImpl implements HomeOneViewPresenter {
 
     @Override
     public void bannerInitNetWork() {
-        RetrofitManager.init(App.getContext());
+        //RetrofitManager.init(App.getContext());
         RetrofitManager instance = RetrofitManager.getInstance();
         ApiService apiService = instance.newRetrofit(ApiService.BASEURL).create(ApiService.class);
         Observable<MovieBean> movie = apiService.getTheatersMovie();

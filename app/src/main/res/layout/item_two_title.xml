@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.allen.library.SuperTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_tv"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp46"
+    stv:sLeftTextString="设置中心"
+    stv:sRightIconHeight="14dp"
+    stv:sRightIconRes="@drawable/arrow_right_red"
+    stv:sRightIconWidth="14dp"
+    stv:sUseRipple="true"/>

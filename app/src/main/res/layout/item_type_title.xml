@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="100dp"
+              android:paddingTop="@dimen/dp10"
+              android:paddingBottom="@dimen/dp10"
+              android:background="@color/white"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/item_tv_android"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/home_title_android"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="android"/>
+
+    <TextView
+        android:id="@+id/item_tv_ios"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/home_title_ios"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="ios"/>
+
+    <TextView
+        android:id="@+id/item_tv_welfare"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/home_title_meizi"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="福利"/>
+</LinearLayout>

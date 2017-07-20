@@ -1,7 +1,9 @@
 package com.sizu.mingteng.my_xianglekang;
 
 import com.sizu.mingteng.my_xianglekang.bean.MovieBean;
+import com.sizu.mingteng.my_xianglekang.bean.MovieDetailBean;
 import com.sizu.mingteng.my_xianglekang.network.BaseBean;
+import com.sizu.mingteng.my_xianglekang.ui.two.bean.HomeTwoBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -15,6 +17,7 @@ public interface ApiService {
 
     //region @description API 定义相关
     String BASEURL = "http://api.douban.com/";
+
     /**
      * 首页轮播图
      */
@@ -22,11 +25,19 @@ public interface ApiService {
     Observable<BaseBean<Object>> getFrontpage();
 
     @GET("main/mainSearch/{token}")
-    Observable<BaseBean<Object>> getHome(@Path("token")String token);
+    Observable<BaseBean<Object>> getHome(@Path("token") String token);
 
     @GET("v2/movie/in_theaters")
     Observable<MovieBean> getTheatersMovie();
 
     @GET("v2/movie/subject/{id}")
-    Observable<MovieBean> getMovieDetail(@Path("id") int id);
+    Observable<MovieDetailBean> getMovieDetail(@Path("id") int id);
+    ///category/Android/count/10/page/1
+
+    @GET("category/{all}/count/{number}/page/{pageNumber}")
+    Observable<HomeTwoBean> getAndroid(@Path("all") String all, @Path("number") int number, @Path("pageNumber") int pageNumber);
+
+    @GET("data/{all}/{number}/{pageNumber}")
+    Observable<HomeTwoBean> getAll(@Path("all") String all, @Path("number") int number, @Path("pageNumber") int pageNumber);
+
 }

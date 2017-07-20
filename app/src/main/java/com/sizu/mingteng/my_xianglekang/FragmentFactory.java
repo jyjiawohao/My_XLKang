@@ -2,11 +2,11 @@ package com.sizu.mingteng.my_xianglekang;
 
 import android.support.v4.app.Fragment;
 
-import com.sizu.mingteng.my_xianglekang.ui.fragment.HomeFiveFragment;
-import com.sizu.mingteng.my_xianglekang.ui.fragment.HomeFourFragment;
-import com.sizu.mingteng.my_xianglekang.ui.fragment.HomeOneFragment;
-import com.sizu.mingteng.my_xianglekang.ui.fragment.HomeThreeFragment;
-import com.sizu.mingteng.my_xianglekang.ui.fragment.HomeTwoFragment;
+import com.sizu.mingteng.my_xianglekang.ui.five.HomeFiveFragment;
+import com.sizu.mingteng.my_xianglekang.ui.four.HomeFourFragment;
+import com.sizu.mingteng.my_xianglekang.ui.one.HomeOneFragment;
+import com.sizu.mingteng.my_xianglekang.ui.three.HomeThreeFragment;
+import com.sizu.mingteng.my_xianglekang.ui.two.HomeTwoFragment;
 
 /**
  * Created by lenovo on 2017/5/24.

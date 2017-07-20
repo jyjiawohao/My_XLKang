@@ -4,9 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-            name="movie"
+            name="itemhome"
             type="com.sizu.mingteng.my_xianglekang.bean.MovieBean.SubjectsBean"/>
     </data>
 
@@ -50,7 +49,7 @@
                     android:paddingEnd="8dp"
                     android:paddingStart="8dp"
                     android:paddingTop="8dp"
-                    android:text="@{movie.title}"
+                    android:text="@{itemhome.title}"
                     android:textColor="@android:color/black"/>
             </LinearLayout>
         </LinearLayout>

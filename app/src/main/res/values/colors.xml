@@ -19,4 +19,18 @@
 
     <!--电影评分-->
     <color name="colorRateRed">#FB5B81</color>
+
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+    <!--item的分割线-->
+    <color name="colorLineItem">#FFDDDDDD</color>
+
+    <color name="bbbbbb_2">#bbbbbb</color>
+
+    <item name="gray_holo_light" type="color">#ffd0d0d0</item>
+
+    <color name="gray_btn">#9e9e9e</color>
+    <color name="red_btn">#fd5353</color>
+
+    <color name="transparent_">#80000000</color>
 </resources>

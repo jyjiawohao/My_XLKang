@@ -7,7 +7,7 @@
     <data>
         <variable
             name="movie"
-            type="com.sizu.mingteng.my_xianglekang.bean.MovieBean.SubjectsBean"/>
+            type="com.sizu.mingteng.my_xianglekang.bean.MovieDetailBean"/>
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -43,7 +43,7 @@
                     app:layout_collapseMode="parallax">
                     <include layout="@layout/movie_header_slide_shape"
                              android:id="@+id/views"
-                             bind:movie="@{movie}"
+                             bind:movie01="@{movie}"
                         />
                 </LinearLayout>
 
@@ -91,6 +91,8 @@
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
@@ -99,7 +101,10 @@
                 android:orientation="vertical"
                 android:paddingTop="24dp">
 
-                <include layout="@layout/moviee_datail_container"/>
+                <include layout="@layout/moviee_datail_container"
+                         android:id="@+id/movie_container"
+                         bind:movie02="@{movie}"
+                    />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>

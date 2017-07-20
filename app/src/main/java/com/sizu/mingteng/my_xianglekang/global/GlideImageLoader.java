@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.sizu.mingteng.my_xianglekang.App;
 import com.sizu.mingteng.my_xianglekang.R;
-import com.sizu.mingteng.my_xianglekang.util.ImageUtils;
+import com.sizu.mingteng.my_xianglekang.util.glide.ImageUtils;
 import com.sizu.mingteng.my_xianglekang.util.MyLogger;
 import com.youth.banner.loader.ImageLoader;
 

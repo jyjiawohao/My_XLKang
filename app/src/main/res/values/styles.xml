@@ -19,22 +19,18 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-   <!-- <style name="SplashTheme"   parent="@android:style/Theme.NoTitleBar.Fullscreen">
-        <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@mipmap/pic4</item>
-    </style>-->
-   <!-- <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-    </style>-->
+
+ <!--
+
     <style name="SplashTheme" parent="AppTheme.NoActionBar">
         <item name="android:background">@mipmap/img_transition_default</item>
         <item name="android:windowBackground">@mipmap/img_transition_default</item>
     </style>
-
+-->
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:background">@drawable/img_transition_default</item>
+    </style>
     <!--水波纹或5.0以下选择器颜色-->
     <color name="tabBackground">#777D7D7D</color>
 
@@ -62,6 +58,28 @@
         <item name="android:paddingTop">24dp</item>
         <item name="android:paddingBottom">24dp</item>
         <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--pop 向下动画-->
+    <style name="AnimDown" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_out</item>
+    </style>
+
+    <!--pop 右出 左回 动画-->
+    <style name="AnimHorizontal" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_left_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_left_out</item>
+    </style>
+    <!--pop 左出 右回 动画-->
+    <style name="AnimRight" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_right_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_right_out</item>
+    </style>
+    <!--pop 全屏 从下到上 动画-->
+    <style name="AnimUp" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
 

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 //需要在mvp的module 中使用  dagger2
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 25
@@ -32,45 +32,51 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
+    /*
+        //rxjava+retrofit 用的一个依赖,使用接口回调的数据 一rxjava形式展现
+        compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+        //把服务器给我们的json自动转换为实体类
+        compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+        compile 'io.reactivex.rxjava2:rxjava:2.0.9'
+        compile 'com.squareup.retrofit2:retrofit:2.2.0'
 
-    //rxjava+retrofit 用的一个依赖,使用接口回调的数据 一rxjava形式展现
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-    //把服务器给我们的json自动转换为实体类
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'io.reactivex.rxjava2:rxjava:2.0.9'
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    //日志拦截器
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-
-    compile'com.android.support:appcompat-v7:25.3.1'
-    compile'com.android.support.constraint:constraint-layout:1.0.2'
-    compile'com.android.support:design:25.3.1'
-    compile'com.android.support:recyclerview-v7:25.3.1'
-    compile'com.android.support:cardview-v7:25.3.1'
+        compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+        //日志拦截器
+        compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'*/
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
     //底部导航栏
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.4.1'
     compile 'com.android.support:support-v4:25.3.1'
-
-
     //一个实用的多条件筛选菜单，在很多App上都能看到这个效果，如美团，爱奇艺电影票等
     compile 'com.github.dongjunkun:DropDownMenu:1.0.4'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
     compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
-
     //适配器
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
-
     //最新版本  轮播图
     compile 'com.youth.banner:banner:1.4.9'
     //图片框架
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
     //取色器
     compile 'com.android.support:palette-v7:25.3.1'
     //Dagger2依赖
-    compile 'com.google.dagger:dagger:2.6'
+    // compile 'com.google.dagger:dagger:2.6'
     //使用apt插件为Dagger2生成代码
-    apt 'com.google.dagger:dagger-compiler:2.6'
+    // apt 'com.google.dagger:dagger-compiler:2.6'
+    //屏幕适配
+    compile 'com.zhy:autolayout:1.4.5'
+
+    compile project(':net') //网络请求 module
+
+    compile ('com.alibaba.android:vlayout:1.0.7@aar') {  //vlayout框架
+        transitive = true
+    }
+    compile 'com.github.lygttpod:SuperTextView:1.1.2'//SuperTextView是一个功能强大的View，可以满足日常大部分布局样式
+
+    // AgentWeb 是基于 Android WebView 一个功能完善小型浏览器库 。
+    compile 'com.just.agentweb:agentweb:1.2.5'
 }

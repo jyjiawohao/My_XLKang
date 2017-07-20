@@ -17,7 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -84,9 +83,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         mTv_title = (TextView) findViewById(R.id.tv_title);
         mNav_view = (NavigationView) findViewById(R.id.nav_view);
 
-        View paddingView = findViewById(R.id.paddingView);
+       /* View paddingView = findViewById(R.id.paddingView);
         ViewGroup.LayoutParams params = paddingView.getLayoutParams();
-        params.height = getStatusBarHeight();
+        params.height = getStatusBarHeight();*/
     }
 
     public int getStatusBarHeight() {
@@ -97,6 +96,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         }
         return result;
     }
+
     private void initToolbar() {
         mToolbar.setTitle("");
         setSupportActionBar(mToolbar);

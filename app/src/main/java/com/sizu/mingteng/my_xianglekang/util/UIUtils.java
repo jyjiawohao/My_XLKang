@@ -7,7 +7,7 @@ import com.sizu.mingteng.my_xianglekang.App;
 
 /**
  * Created by lenovo on 2017/5/24.
- *  封装和ui相关的操作
+ * 封装和ui相关的操作
  */
 
 public class UIUtils {
@@ -67,7 +67,6 @@ public class UIUtils {
         1.  px/(ppi/160) = dp
         2.  px/dp = density
          */
-
         //取得当前手机px和dp的倍数关系
         float density = getResources().getDisplayMetrics().density;
         int px = (int) (dip * density + .5f);

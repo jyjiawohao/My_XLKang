@@ -1,6 +1,6 @@
 package com.sizu.mingteng.my_xianglekang.global;
 
-import com.sizu.mingteng.my_xianglekang.bean.MovieBean;
+import com.sizu.mingteng.my_xianglekang.bean.MovieDetailBean;
 import com.sizu.mingteng.my_xianglekang.bean.PersonBean;
 
 import java.util.List;
@@ -50,40 +50,53 @@ public class StringFormatUtil {
         }
     }
 
-    public static String Average(int i, MovieBean.SubjectsBean bean) {
+    public static String Average(int i, MovieDetailBean bean) {
         StringBuffer stringBuffer = new StringBuffer();
+        if (bean == null)
+            return stringBuffer.toString();
         switch (i) {
             case 1:
                 stringBuffer.append("评分:\t" + bean.getRating().getAverage());
                 break;
             case 2:
-                stringBuffer.append( bean.getDirectors().get(0).getName());
+                stringBuffer.append(bean.getDirectors().get(0).getName());
                 break;
             case 3:
                 //stringBuffer.append("主演:\t");
-                for (MovieBean.SubjectsBean.CastsBean castsBean : bean.getCasts()) {
-                    stringBuffer.append(castsBean.getName()+"/");
+                for (MovieDetailBean.CastsBean castsBean : bean.getCasts()) {
+                    stringBuffer.append(castsBean.getName() + "/");
                 }
                 break;
             case 4:
                 stringBuffer.append("类型:\t");
                 for (String s : bean.getGenres()) {
-                    stringBuffer.append(s+"/");
+                    stringBuffer.append(s + "/");
                 }
                 break;
             case 5:
-                stringBuffer.append("上映日期:\t"+bean.getYear());
+                stringBuffer.append("上映日期:\t" + bean.getYear());
                 break;
 
             case 6:
-                stringBuffer.append("制片国家/地区\t");
+                stringBuffer.append("制片国家/地区:\t" + bean.getCountries());
                 break;
 
             case 7:
-                stringBuffer.append(bean.getCollect_count()+"评分");
+                stringBuffer.append(bean.getCollect_count() + "评分");
                 break;
         }
 
+        return stringBuffer.toString();
+    }
+
+    public static String container(MovieDetailBean bean) {
+        StringBuffer stringBuffer = new StringBuffer();
+        if (bean == null)
+            return stringBuffer.toString();
+
+        for (String s : bean.getAka()) {
+            stringBuffer.append(s + "/");
+        }
         return stringBuffer.toString();
     }
 }

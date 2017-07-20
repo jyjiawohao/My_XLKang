@@ -3,11 +3,17 @@ package com.sizu.mingteng.my_xianglekang.network;
 import android.content.Context;
 import android.util.Log;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.sizu.mingteng.my_xianglekang.App;
 import com.sizu.mingteng.my_xianglekang.global.AppConfig;
 import com.sizu.mingteng.my_xianglekang.util.AppUtil;
+import com.sizu.mingteng.my_xianglekang.util.MyLogger;
+import com.sizu.mingteng.my_xianglekang.util.ToastUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -23,8 +29,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.HttpException;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -38,22 +44,26 @@ public class RetrofitManager {
     private static Context mContext;
     private static RetrofitManager sInstace;
 
+
     private static class InnerHolder {
         private static RetrofitManager INSTACE = new RetrofitManager();
     }
 
     public static RetrofitManager getInstance() {
-        if (sInstace==null){
+        if (sInstace == null) {
+            mContext = App.getContext();
             sInstace = InnerHolder.INSTACE;
         }
         return sInstace;
 
     }
-   /*
-    public static RetrofitManager getInstance() {
-        return InnerHolder.INSTACE;
-    }
-*/
+
+    /*
+     public static RetrofitManager getInstance() {
+         return InnerHolder.INSTACE;
+     }
+    */
+
     public static void init(Context context) {
         //防止内存泄漏
         mContext = context.getApplicationContext();
@@ -74,28 +84,52 @@ public class RetrofitManager {
                 .build();
     }
 
-    public <T> void toSubscribeObserver(Observable<T> observable,Object o) {
+    public static <T> void toSubscribeObserver(Observable<T> observable, final ObserverListener observerListener) {
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<T>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-
+                        MyLogger.e("HomeOneViewPresenterImpl", "onSubscribe: " + d);
+                        if (observerListener != null)
+                            observerListener.onSubscribe();
                     }
 
                     @Override
                     public void onNext(@NonNull T t) {
-
+                        MyLogger.e("HomeOneViewPresenterImpl", "onNext: " + t);
+                        if (observerListener != null)
+                            observerListener.onNext(t);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-
+                        MyLogger.e("HomeOneViewPresenterImpl", "onError: " + e.getLocalizedMessage());
+                        //失败的时候回调-----一下可以忽略 直接 callBack.onFaild("请求失败");
+                        if (e instanceof HttpException) {
+                            HttpException httpException = (HttpException) e;
+                            //httpException.response().errorBody().string()
+                            int code = httpException.code();
+                            if (code == 500 || code == 404) {
+                                ToastUtils.showToast("服务器出错");
+                            }
+                        } else if (e instanceof ConnectException) {
+                            ToastUtils.showToast("网络中断，请检查您的网络状态");
+                        } else if (e instanceof SocketTimeoutException) {
+                            ToastUtils.showToast("网络连接超时");
+                        } else {
+                            // callBack.onFaild("发生未知错误" + e.getMessage());
+                            ToastUtils.showToast("error:" + e.getMessage());
+                        }
+                        if (observerListener != null)
+                            observerListener.onError(e);
                     }
 
                     @Override
                     public void onComplete() {
-
+                        MyLogger.e("HomeOneViewPresenterImpl", "onComplete: ");
+                        if (observerListener != null)
+                            observerListener.onComplete();
                     }
                 });
     }
@@ -173,6 +207,6 @@ public class RetrofitManager {
                     .connectTimeout(15, TimeUnit.SECONDS)
                     .build();
         }
-        mOkHttpClient=client;
+        mOkHttpClient = client;
     }
 }

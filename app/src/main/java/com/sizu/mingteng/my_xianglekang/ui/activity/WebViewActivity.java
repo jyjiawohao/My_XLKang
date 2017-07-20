@@ -1,5 +1,6 @@
 package com.sizu.mingteng.my_xianglekang.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
@@ -347,5 +348,17 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
             webView = null;
         }
     }
-
+    /**
+     * 打开网页:
+     *
+     * @param mContext 上下文
+     * @param mUrl     要加载的网页url
+     * @param mTitle   title
+     */
+    public static void loadUrl(Context mContext, String mUrl, String mTitle) {
+        Intent intent = new Intent(mContext, WebViewActivity.class);
+        intent.putExtra("mUrl", mUrl);
+        intent.putExtra("mTitle", mTitle);
+        mContext.startActivity(intent);
+    }
 }
