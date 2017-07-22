@@ -1,5 +1,6 @@
 package com.sizu.mingteng.my_xianglekang;
 
+import com.sizu.mingteng.my_xianglekang.bean.GanIoTypeBean;
 import com.sizu.mingteng.my_xianglekang.bean.MovieBean;
 import com.sizu.mingteng.my_xianglekang.bean.MovieDetailBean;
 import com.sizu.mingteng.my_xianglekang.network.BaseBean;
@@ -40,4 +41,6 @@ public interface ApiService {
     @GET("data/{all}/{number}/{pageNumber}")
     Observable<HomeTwoBean> getAll(@Path("all") String all, @Path("number") int number, @Path("pageNumber") int pageNumber);
 
+    @GET("data/{all}/{number}/{pageNumber}")
+    Observable<GanIoTypeBean> getAllType(@Path("all") String all, @Path("number") int number, @Path("pageNumber") int pageNumber);
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 
 import com.sizu.mingteng.my_xianglekang.base.BaseActivity;
 
@@ -20,6 +21,11 @@ public class App extends Application {
     public static Handler mhandler;
 
     private List<BaseActivity> mBaseActivityList = new ArrayList<>();
+    private static View sHandler;
+
+    public static View getHandler() {
+        return sHandler;
+    }
 
     @Override
     public void onCreate() {
@@ -62,6 +68,12 @@ public class App extends Application {
      */
     public void removeActivity(BaseActivity activity) {
         mBaseActivityList.remove(activity);
+        for (int i = 0; i < mBaseActivityList.size(); i++) {
+            if (mBaseActivityList.get(i).equals(activity)) {
+                mBaseActivityList.remove(activity);
+                i--;
+            }
+        }
     }
 
 

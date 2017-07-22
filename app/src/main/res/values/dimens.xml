@@ -6,6 +6,7 @@
     <dimen name="book_detail_width">120dp</dimen>
     <dimen name="book_detail_height">165dp</dimen>
 
+    <dimen name="dp0">0dp</dimen>
     <dimen name="dp0.1">0.1dp</dimen>
     <dimen name="dp0.5">0.5dp</dimen>
     <dimen name="dp1">1dp</dimen>

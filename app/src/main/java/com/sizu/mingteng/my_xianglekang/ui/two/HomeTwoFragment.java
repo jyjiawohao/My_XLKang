@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -90,7 +91,13 @@ public class HomeTwoFragment extends Fragment implements HomeTwoView {
         //设置Adapter列表
         mAdapterList = new LinkedList<>();
 
-
+        mHomeTwoBinding.swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //TODO 假的刷新  真实开发者中 请调用刷新请求网络
+                mHomeTwoBinding.swipeContainer.setRefreshing(false);
+            }
+        });
     }
 
     @Override
@@ -253,7 +260,7 @@ public class HomeTwoFragment extends Fragment implements HomeTwoView {
 
         setTitleItem("垂直权重布局",true);
         OnePlusNLayoutHelperEx helper09 = new OnePlusNLayoutHelperEx();
-        helper09.setBgColor(0xffed7612);
+       // helper09.setBgColor(0xffed7612);
         // helper.setMargin(0, 10, 0, 10);
 //            helper.setPadding(10, 10, 10, 10);
         helper09.setColWeights(new float[]{30f, 20f, 50f, 40f, 30f, 35f, 35f});

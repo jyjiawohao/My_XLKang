@@ -10,7 +10,7 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.sizu.mingteng.my_xianglekang.R;
-import com.sizu.mingteng.my_xianglekang.ui.two.activity.AgentWebActivity;
+import com.sizu.mingteng.my_xianglekang.ui.two.activity.GankIoActivity;
 import com.sizu.mingteng.my_xianglekang.ui.two.bean.HomeTwoBean;
 
 /**
@@ -78,13 +78,13 @@ public class SubAdapter extends DelegateAdapter.Adapter<BaseViewHolder> implemen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.item_tv_android:
-                AgentWebActivity.getCallingIntent(mContext,"android");
+                GankIoActivity.getCallingIntent(mContext,"Android");
                 break;
             case R.id.item_tv_ios:
-                AgentWebActivity.getCallingIntent(mContext,"ios");
+                GankIoActivity.getCallingIntent(mContext,"iOS");
                 break;
             case R.id.item_tv_welfare:
-                AgentWebActivity.getCallingIntent(mContext,"福利");
+                GankIoActivity.getCallingIntent(mContext,"福利");
                 break;
             default:
                 break;

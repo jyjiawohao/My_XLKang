@@ -140,7 +140,7 @@ public class HomeOneFragment extends Fragment implements HomeOneView, SwipeRefre
 
     @Override
     public void onRefresh() {
-        mHomeOneViewPresenter.bannerInitNetWork();
+        mHomeOneViewPresenter.bannerInitNetWork(); //网络请求
     }
 
     @Override

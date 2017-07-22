@@ -3,6 +3,7 @@ package com.sizu.mingteng.my_xianglekang.ui.two.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -11,6 +12,7 @@ import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.sizu.mingteng.my_xianglekang.R;
 import com.sizu.mingteng.my_xianglekang.global.UriUtil;
+import com.sizu.mingteng.my_xianglekang.ui.two.activity.AgentWebActivity;
 import com.sizu.mingteng.my_xianglekang.ui.two.bean.HomeTwoBean;
 import com.sizu.mingteng.my_xianglekang.util.StringUtils;
 import com.sizu.mingteng.my_xianglekang.util.glide.ImageUtils;
@@ -59,12 +61,18 @@ public class HomeTwoSubAdapter extends DelegateAdapter.Adapter<BaseViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, final int position) {
         ImageView mItem_image = (ImageView) holder.getItemView(R.id.item_image);
         ImageUtils.setImage(mContext, UriUtil.imagUrl[position], R.drawable.img_two_bi_one, mItem_image);
         holder.setItemView(R.id.item_time, mList.get(position + 1).getPublishedAt())
                 .setItemView(R.id.item_title, mList.get(position + 1).getType())
                 .setText(R.id.item_cade, StringUtils.decode(mList.get(position).getDesc()));
+        holder.getViewHolder().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AgentWebActivity.getCallingIntent(mContext,mList.get(position).getUrl());
+            }
+        });
     }
 
 

@@ -29,7 +29,7 @@ public class ItemBannerAdapter extends DelegateAdapter.Adapter<BaseViewHolder> {
     private List<HomeTwoBean.ResultsBean> mList;
 
     public ItemBannerAdapter(Context context, LayoutHelper layoutHelper, int count) {
-        this(context, layoutHelper, count, new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300));
+        this(context, layoutHelper, count, new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
     public ItemBannerAdapter(Context context, LayoutHelper layoutHelper, int count, @NonNull VirtualLayoutManager.LayoutParams layoutParams) {

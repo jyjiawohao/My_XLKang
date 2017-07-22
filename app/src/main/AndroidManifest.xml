@@ -8,8 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!--AgentWeb 是默认启动定位的 ， 请在你的 AndroidManifest 文件里面加入如下权限 。-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -43,14 +44,15 @@
         <activity android:name=".ui.activity.CommonTextViewActivity"/>
         <activity android:name=".ui.activity.TypeMainActivity"/>
         <activity android:name=".ui.activity.TypeActivity"/>
+        <activity android:name=".ui.two.activity.GankIoActivity"/>
         <activity
             android:name=".ui.activity.WebViewActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.two.activity.AgentWebActivity"
-            android:hardwareAccelerated="true"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true">
         </activity>
     </application>
 

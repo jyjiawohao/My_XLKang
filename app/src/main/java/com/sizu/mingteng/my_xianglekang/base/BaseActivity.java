@@ -17,6 +17,8 @@ import com.sizu.mingteng.my_xianglekang.util.ToastUtils;
 public class BaseActivity extends PermissionActivity {
     private App mApp;//需要在清单文件配置 getApplication
     private ProgressDialog mProgressDialog;
+    private int mView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class BaseActivity extends PermissionActivity {
          *  所有的Activity都依附于一个Application，在Activity中只要通过 getApplication（）方法，
          *  就能拿到当前应用中的Application对象
          */
-        mApp = (App)getApplication();
+        mApp = (App) getApplication();
         mApp.addActivity(this);
         mProgressDialog = new ProgressDialog(this); //设置进度对话框
         mProgressDialog.setCancelable(false);
@@ -32,9 +34,10 @@ public class BaseActivity extends PermissionActivity {
 
     /**
      * 显示diaog
+     *
      * @param msg
      */
-    public void showDialog(String msg){
+    public void showDialog(String msg) {
         mProgressDialog.setMessage(msg);
         mProgressDialog.show();
     }
@@ -42,7 +45,7 @@ public class BaseActivity extends PermissionActivity {
     /**
      * 横向的 进度条 对话框
      */
-    public void showMaterialDialog(){
+    public void showMaterialDialog() {
        /* new MaterialDialog.Builder(this)
                 .title("数据下载中")
                 .content("请等待")
@@ -68,9 +71,10 @@ public class BaseActivity extends PermissionActivity {
     /**
      * 隐藏 diaog
      */
-    public void hideDialog(){
+    public void hideDialog() {
         mProgressDialog.hide();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -80,28 +84,31 @@ public class BaseActivity extends PermissionActivity {
 
     /**
      * 吐司
+     *
      * @param msg
      */
-    public void showToast(String msg){
-        ToastUtils.showToast(this,msg);
+    public void showToast(String msg) {
+        ToastUtils.showToast(this, msg);
     }
 
     /**
      * 带参数  是否需要 finish 当前activity
+     *
      * @param clazz
      * @param isFinish
      * @param contact
      */
-    public void startActivity(Class clazz, boolean isFinish,String username, String contact) {
-        Intent intent = new Intent(this,clazz);
-        if (contact!=null){
-            intent.putExtra(username,contact);
+    public void startActivity(Class clazz, boolean isFinish, String username, String contact) {
+        Intent intent = new Intent(this, clazz);
+        if (contact != null) {
+            intent.putExtra(username, contact);
         }
         startActivity(intent);
-        if (isFinish){
+        if (isFinish) {
             finish();
         }
     }
+
     /**
      * 通过Class跳转界面
      **/
@@ -140,7 +147,6 @@ public class BaseActivity extends PermissionActivity {
         }
         startActivity(intent);
     }
-
 
 
 }

@@ -55,30 +55,32 @@ public abstract class CommonPager {
     public CommonPager() {
         commonContainer = new FrameLayout(App.getContext());
     }
+
     /**
      * 确保代码在主线程中执行
      */
-    public void runOnUiThread(){
-        new Runnable(){
+    public void runOnUiThread() {
+        new Runnable() {
             @Override
             public void run() {
-                onLoadingData=false; //设置为可刷新状态
-                if(isReadData){
+                onLoadingData = false; //设置为可刷新状态
+                if (isReadData) {
                     // 获取到数据，判断数据集是否为空
-                    if(isNullData){
+                    if (isNullData) {
                         // 加载空数据
                         showEmpty();
-                    }else{
+                    } else {
                         // 加载成功界面
                         showSuccess();
                     }
-                }else{
+                } else {
                     // 没有获取到数据，显示错误界面
                     showError();
                 }
             }
         };
     }
+
     /**
      * 动态界面加载流程的起点
      */

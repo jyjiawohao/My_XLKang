@@ -79,4 +79,6 @@ dependencies {
 
     // AgentWeb 是基于 Android WebView 一个功能完善小型浏览器库 。
     compile 'com.just.agentweb:agentweb:1.2.5'
+
+    compile 'com.jaeger.statusbarutil:library:1.4.0' //沉浸式状态栏
 }
